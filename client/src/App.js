@@ -14,6 +14,7 @@ function App(){
     <Route path="/register" component={Register} />
     <Route path="/profile" component={Profile} />
     <Route path="/home" component={Home} />
+    <Route path="/home/:i" component={Home} />
   </Switch>
   </div>
   </Router>
