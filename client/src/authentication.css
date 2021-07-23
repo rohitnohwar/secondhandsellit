@@ -1,0 +1,31 @@
+.register-form{
+    text-align: center;
+    background-color: aquamarine;
+    width: 25%;
+    margin: auto;
+    margin-top: 15%;
+    padding: 1%;
+    border-radius: 1rem;
+}
+
+.reg-input{
+    border-radius: 1rem;
+    width: 70%;
+    margin:3%;
+    padding: 3%;
+}
+
+.reg-button{
+    width:40%;
+    margin:3%;
+    border-radius: 1rem;
+    padding: 1.5%;
+}
+
+input{
+    outline: none;
+}
+
+button:hover{
+    cursor: pointer;
+}
