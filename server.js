@@ -13,7 +13,7 @@ const saltRounds = 10;
 
 const storage=multer.diskStorage({
     destination:(req, file, cb)=>{
-        cb(null,"client/Images");
+        cb(null,"client/src/Images");
     },
     filename:(req, file, cb)=>{
         cb(null, Date.now()+path.extname(file.originalname));
@@ -28,7 +28,7 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static("./client/Images"));
+app.use(express.static("./client/src/Images"));
 
 mongoose.connect(process.env.URI, {useNewUrlParser:true, useUnifiedTopology: true});
 mongoose.set("useCreateIndex", true);
