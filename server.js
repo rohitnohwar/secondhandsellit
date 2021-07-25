@@ -179,7 +179,7 @@ app.post("/search", function(req, res){
 
 app.post("/deletepost", function(req, res){
 
-    const pathToFile = "./client/Images/"+req.body.image;
+    const pathToFile = "./client/src/Images/"+req.body.image;
 
     fs.unlink(pathToFile, function(err) {
         if (err) {
