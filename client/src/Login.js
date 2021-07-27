@@ -47,6 +47,7 @@ function Login(props){
     return <div>
     <Title />
     <form action="/login" class="register-form" method="POST">
+    <div>YOU CAN'T LOGIN IF YOU ARE NOT A REGISTERED USER</div>
     <div><input type="email" placeholder="email address" name="username" class="reg-input" onChange={handleChange} value={input.username} required></input></div>
     <div><input type="password" placeholder="password" name="password" class="reg-input" onChange={handleChange} value={input.password} required></input></div>
     <div><button type="submit" class="reg-button" onClick={handleClick}>LOGIN</button></div>
