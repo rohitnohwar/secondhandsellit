@@ -1,26 +1,26 @@
 .item{
     margin:auto;
-    margin-top: 10%;
+    margin-top: 3rem;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     width: 40rem;
     height: 40rem;
     background-color:ghostwhite;
     border-radius: 2rem;
-    padding: 1%;
+    padding: 1rem;
 }
 
 .img-div{
-    width: 100%;
+    width: 40rem;
 }
 
 .img-class{
-    width:90%;
+    width:40rem;
     border-radius: 2rem;
 }
 
 .entry-delete{
     border-radius: 1rem;
-    margin-top: 1%;
+    margin-top: 0.5rem;
 }
 
 .posts{

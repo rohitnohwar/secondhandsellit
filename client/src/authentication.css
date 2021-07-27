@@ -1,25 +1,25 @@
 .register-form{
     text-align: center;
     background-color: aquamarine;
-    width: 25%;
+    width: 30rem;
     margin: auto;
-    margin-top: 15%;
-    padding: 1%;
+    margin-top: 15rem;
+    padding: 1rem;
     border-radius: 1rem;
 }
 
 .reg-input{
     border-radius: 1rem;
-    width: 70%;
-    margin:3%;
-    padding: 3%;
+    width: 20rem;
+    margin:0.7rem;
+    padding: 0.7rem;
 }
 
 .reg-button{
-    width:40%;
-    margin:3%;
+    width:8rem;
+    margin:1rem;
     border-radius: 1rem;
-    padding: 1.5%;
+    padding: 0.4rem;
 }
 
 input{

@@ -3,17 +3,17 @@
     background-color:rgb(64,64,64);
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color:aliceblue;
-    padding:0.5%;
+    padding:0.5rem;
 }
 
 .form-input{
-    width:50%;
+    width:50rem;
     border-radius: 1rem;
-    padding: 0.6%;
+    padding: 0.6rem;
 }
 
 .form-button{
-    width:5%;
+    width:5rem;
     border-radius: 1rem;
-    padding: 0.5%;
+    padding: 0.5rem;
 }

@@ -63,6 +63,7 @@ function Entry(props){
 
     return <div class="entry">
     <form action="/entry" method="POST" enctype="multipart/form-data">
+    <div class="entry-header">Enter item that you want sell</div>
     <div class="entry-header">All Fields are compulsory</div>
     <div>Choose an image</div>
     <div class="entry-div"><input type="file" name="image" id="entry-input-image" onChange={handleFileChange} required></input><div class="uploaded-image"></div></div>

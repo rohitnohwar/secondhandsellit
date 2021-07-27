@@ -77,7 +77,7 @@ function Profile(props){
         <Title />
         <div class="sticky"><Nav /></div>
         <div class="pro"><span class="profile">{user.name}</span></div>
-        <form class="pro" action="/logout" method="POST"><button type="submit" onClick={logout}>LOGOUT</button></form>
+        <form class="pro" action="/logout" method="POST"><button type="submit" class="logout-button" onClick={logout}>LOGOUT</button></form>
         <Entry 
         email={user.email}
         name={user.name}
