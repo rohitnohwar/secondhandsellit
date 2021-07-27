@@ -13,14 +13,14 @@
     margin: 0.5rem;
     border-radius: 1rem;
     width:50rem;
-    border: 1px solid black;
+    border: 0.01rem solid black;
 }
 
 .entry-button{
     padding:0.7rem;
     border-radius: 1rem;
     width:7rem;
-    border: 1px solid black;
+    border: 0.01rem solid black;
 }
 
 .entry-header{
@@ -33,5 +33,5 @@
     margin: 0.5rem;
     border-radius: 1rem;
     width:50rem;
-    border: 1px solid black;
+    border: 0.01rem solid black;
 }
