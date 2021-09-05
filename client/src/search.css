@@ -24,20 +24,38 @@
     }
 }
 
+@media screen and (max-width: 1001px) {
+    .form-input {
+        width: 46rem;
+    }
+}
+
+@media screen and (max-width: 901px) {
+    .form-input {
+        width: 42rem;
+    }
+}
+
 @media screen and (max-width: 801px) {
     .form-input {
-        width: 25rem;
+        width: 35rem;
     }
 }
 
 @media screen and (max-width: 701px) {
     .form-input {
-        width: 20rem;
+        width: 27rem;
+    }
+}
+
+@media screen and (max-width: 601px) {
+    .form-input {
+        width: 23rem;
     }
 }
 
 @media screen and (max-width: 501px) {
     .form-input {
-        width: 19rem;
+        width: 15rem;
     }
 }
