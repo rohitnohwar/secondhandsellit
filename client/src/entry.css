@@ -35,3 +35,39 @@
     width:50rem;
     border: 0.01rem solid black;
 }
+
+@media  screen and (max-width:1051px) {
+    .entry {
+        width: 40rem;
+    }
+    .entry-input {
+        width: 35rem;
+    }
+    #entry-input-image {
+        width: 35rem;
+    }
+}
+
+@media  screen and (max-width:701px) {
+    .entry {
+        width: 25rem;
+    }
+    .entry-input {
+        width: 20rem;
+    }
+    #entry-input-image {
+        width: 20rem;
+    }
+}
+
+@media  screen and (max-width:501px){
+    .entry {
+        width: 17rem;
+    }
+    .entry-input {
+        width: 14rem;
+    }
+    #entry-input-image {
+        width: 14rem;
+    }
+}

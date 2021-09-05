@@ -29,3 +29,12 @@ input{
 button:hover{
     cursor: pointer;
 }
+
+@media screen and (max-width: 512px) {
+    .register-form {
+        width: 18rem;
+    }
+    .reg-input {
+        width: 12rem;
+    }
+}

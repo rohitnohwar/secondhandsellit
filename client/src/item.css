@@ -27,3 +27,95 @@
     display:grid;
     grid-template-columns: repeat(2, 1fr);
 }
+
+@media  screen and (max-width:1351px) {
+    .item {
+        min-width: 30rem;
+        max-width: 30rem;
+        min-height: 40rem;
+        max-height: 40rem;
+    }
+    .img-div{
+        width: 29rem;
+    }
+    .img-class{
+        width:29rem;
+    }
+    img {
+        width: 29rem;
+    }
+}
+
+@media  screen and (max-width:1051px) {
+    .item {
+        min-width: 22rem;
+        max-width: 22rem;
+        min-height: 40rem;
+        max-height: 40rem;
+    }
+    .img-div{
+        width: 21rem;
+    }
+    .img-class{
+        width:21rem;
+    }
+    img {
+        width: 21rem;
+    }
+}
+
+@media  screen and (max-width:801px) {
+    .posts {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .item {
+        min-width: 40rem;
+        max-width: 40rem;
+    }
+    .img-div{
+        width: 39rem;
+    }
+    .img-class{
+        width:39rem;
+    }
+    img {
+        width: 39rem;
+    }
+}
+
+@media  screen and (max-width:701px) {
+    .item {
+        min-width: 30rem;
+        max-width: 30rem;
+        min-height: 40rem;
+        max-height: 40rem;
+    }
+    .img-div{
+        width: 29rem;
+    }
+    .img-class{
+        width:29rem;
+    }
+    img {
+        width: 29rem;
+    }
+}
+
+@media  screen and (max-width:501px) {
+    .item {
+        min-width: 20rem;
+        max-width: 20rem;
+        min-height: 40rem;
+        max-height: 40rem;
+    }
+    .img-div{
+        width: 19rem;
+    }
+    .img-class{
+        width:19rem;
+    }
+    img {
+        width: 19rem;
+    }
+}
