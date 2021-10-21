@@ -227,7 +227,14 @@ app.post("/deletepost", function(req, res){
         if(err){
             console.log(err);
         }
-        res.send("");
+
+        User.findOne({username:req.body.username}, function(err, foundUser){
+            foundUser=foundUser.posts;
+            foundUser.sort(function(a,b){
+                return new Date(b.time) - new Date(a.time);
+            });
+            res.json({foundPosts:foundUser});
+        });
     });
 });
 

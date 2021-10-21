@@ -33,6 +33,7 @@ function Profile(props){
             time={items.time}
             _id={items._id}
             image={items.image}
+            setUserPosts={setUserPosts}
             onRemove={handleRemove}
             />);
     }

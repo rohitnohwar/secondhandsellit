@@ -12,8 +12,11 @@ function Useritem(props){
             image:props.image
         }
         
-        props.onRemove(props.id);
-        axios.post("/deletepost", postToBeDeleted);
+        //props.onRemove(props.id);
+        axios.post("/deletepost", postToBeDeleted
+        ).then((response)=>{
+            props.setUserPosts(response?.data?.foundPosts)
+        });
         event.preventDefault();
         document.body.style.cursor='default';
     }
