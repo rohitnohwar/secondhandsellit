@@ -5,7 +5,12 @@
     margin: auto;
     margin-top: 15rem;
     padding: 1rem;
+    height: 350px;
     border-radius: 1rem;
+}
+
+.message {
+    color: red;
 }
 
 .reg-input{
@@ -28,6 +33,18 @@ input{
 
 button:hover{
     cursor: pointer;
+}
+
+@media screen and (max-height: 700px) {
+    .register-form {
+        margin-top: 7rem;
+    }
+}
+
+@media screen and (max-height: 550px) {
+    .register-form {
+        margin-top: 2rem;
+    }
 }
 
 @media screen and (max-width: 512px) {

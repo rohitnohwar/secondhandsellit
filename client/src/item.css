@@ -16,6 +16,7 @@
 .img-class{
     width:40rem;
     border-radius: 2rem;
+    max-height: 20rem;
 }
 
 .entry-delete{

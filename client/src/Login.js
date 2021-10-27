@@ -6,6 +6,7 @@ import Cookies from "js-cookie";
 
 function Login(props){
     const history=useHistory();
+    const [message, setMessage]=useState("")
     const[input, setInput]=useState({
         username:"",
         password:""
@@ -37,8 +38,8 @@ function Login(props){
                 Cookies.set("name", response.data.name);
                 history.push("/profile");
             }
-            else{
-                history.push("/register");
+            else {
+                setMessage(response.data.message)
             }
         }); 
         document.body.style.cursor='default';
@@ -52,7 +53,8 @@ function Login(props){
     <div><input type="password" placeholder="password" name="password" class="reg-input" onChange={handleChange} value={input.password} required></input></div>
     <div><button type="submit" class="reg-button" onClick={handleClick}>LOGIN</button></div>
     <div><Link to="/register">NOT REGISTERED? REGISTER INSTEAD?</Link></div>
-    </form>
+    <div className="message">{message}</div>
+    </form> 
     </div>;
 }
 

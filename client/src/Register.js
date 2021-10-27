@@ -5,6 +5,7 @@ import axios from "axios";
 import "./authentication.css";
 
 function Register(){
+    const [message, setMessage]=useState("")
     const history=useHistory();
     const[input, setInput]=useState({
         username:"",
@@ -33,7 +34,7 @@ function Register(){
 
         axios.post("/register", newUser
         ).then((response)=>{
-            history.push("/");
+            setMessage(response.data.message)
         });
         document.body.style.cursor='default';
     }
@@ -46,6 +47,7 @@ function Register(){
     <div><input type="password" placeholder="password" name="password" class="reg-input" onChange={handleChange} value={input.password} required></input></div>
     <div><button type="submit" class="reg-button" onClick={handleClick}>REGISTER</button></div>
     <div><Link to="/">ALREADY REGISTERED? LOGIN INSTEAD?</Link></div>
+    <div className="message">{message}</div>
     </form>
     </div>;
 }

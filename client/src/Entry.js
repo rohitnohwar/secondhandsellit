@@ -3,7 +3,7 @@ import axios from "axios";
 import "./entry.css";
 
 function Entry(props){
-
+    const [message, setMessage]=useState("")
     const [entry, setEntry]=useState
     ({
         item:"",
@@ -31,6 +31,7 @@ function Entry(props){
     }
 
     function handleClick(event){
+        setMessage("Please wait. The post is getting uploaded")
         document.body.style.cursor='wait';
         event.preventDefault();
         const formdata=new FormData();
@@ -46,6 +47,7 @@ function Entry(props){
         axios.post("/entry", formdata
         ).then((response)=>{
             props.onAdd();
+            setMessage("")
         });
 
         setEntry({
@@ -73,6 +75,7 @@ function Entry(props){
     <div class="entry-div"><input type="text" name="locality" placeholder="Locality" class="entry-input" onChange={handleChange} value={entry.locality} required></input></div>
     <div class="entry-div"><input type="text" name="city" placeholder="City" class="entry-input" onChange={handleChange} value={entry.city} required></input></div>
     <div class="entry-button-div"><button type="reset" class="entry-button" onClick={handleClick} >ENTER</button></div>
+    <div className="message">{message}</div>
     </form>
     </div>;
 } 

@@ -100,12 +100,12 @@ app.post("/register", function(req, res){
                             password:hash
                         });
                         newUser.save();
-                        res.send("");
+                        res.json({message:"User account created"});
                     }
                 })
             }
             else{
-                res.send("");
+                res.json({message:"User account already exists"});
             }
         }
     });
@@ -120,16 +120,16 @@ app.post("/login", function(req, res){
             console.log(err);
         }
         else if(!foundUser){
-            res.json({auth:false});
+            res.json({auth:false, message:"User doesn't exists"});
         }
         
         else  if(foundUser){
             bcrypt.compare(password, foundUser.password, function(err, response){
                 if(response === true){
-                    res.json({auth: true, foundUser:foundUser, name:foundUser.name, email:foundUser.email});
+                    res.json({auth: true, foundUser:foundUser, name:foundUser.name, email:foundUser.email, message:"user doesn't exists"});
                 }
                 else if(response===false){
-                    res.json({ auth:false});
+                    res.json({ auth:false, message:"Incorrect credentials"});
                 }
             });
         }
