@@ -31,7 +31,7 @@ function Entry(props){
     }
 
     function handleClick(event){
-        setMessage("Please wait. The post is getting uploaded")
+        setMessage("Please wait. The post is getting uploaded.")
         document.body.style.cursor='wait';
         event.preventDefault();
         const formdata=new FormData();
