@@ -31,7 +31,6 @@ function Entry(props){
     }
 
     async function handleClick(event){
-        setMessage("Please wait. The post is getting uploaded.")
         event.preventDefault();
         const formdata=new FormData();
         formdata.append("image", uploadImage);
@@ -43,22 +42,27 @@ function Entry(props){
         formdata.append("locality", entry.locality);
         formdata.append("city", entry.city);
 
-        await axios.post("/entry", formdata
-        ).then((response)=>{
-            props.onAdd();
-        });
+        if(props.email && props.name && entry.item && entry.number && entry.address && entry.locality && entry.city && uploadImage){
+            setMessage("Please wait. The post is getting uploaded.")
+            await axios.post("/entry", formdata
+            ).then((response)=>{
+                props.onAdd();
+            });
 
-        setEntry({
-            item:"",
-            number:"",
-            address:"",
-            locality:"",
-            city:""
-        });
-
+            setEntry({
+                item:"",
+                number:"",
+                address:"",
+                locality:"",
+                city:""
+            });
+            setMessage("")
+        }
+        else {
+            setMessage("Please fill all details before uploading.")
+        }
         document.getElementById("entry-input-image").value = "";
         setUploadImage(null);
-        setMessage("")
     }
 
     return <div class="entry">

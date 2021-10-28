@@ -62,14 +62,12 @@ function Profile(props){
 
     useEffect(()=>{ 
         if(auth){
-            document.body.style.cursor='wait';
             axios.get("/userposts", {params:{
                 username:user.email
             }}
             ).then((response)=>{
                 setUserPosts(response.data.foundPosts);
-            });
-            document.body.style.cursor='default';  
+            }); 
         }
     }, []);
 
