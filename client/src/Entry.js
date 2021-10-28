@@ -30,9 +30,8 @@ function Entry(props){
         setUploadImage(file);
     }
 
-    function handleClick(event){
+    async function handleClick(event){
         setMessage("Please wait. The post is getting uploaded.")
-        document.body.style.cursor='wait';
         event.preventDefault();
         const formdata=new FormData();
         formdata.append("image", uploadImage);
@@ -44,10 +43,9 @@ function Entry(props){
         formdata.append("locality", entry.locality);
         formdata.append("city", entry.city);
 
-        axios.post("/entry", formdata
+        await axios.post("/entry", formdata
         ).then((response)=>{
             props.onAdd();
-            setMessage("")
         });
 
         setEntry({
@@ -60,7 +58,7 @@ function Entry(props){
 
         document.getElementById("entry-input-image").value = "";
         setUploadImage(null);
-        document.body.style.cursor='default';
+        setMessage("")
     }
 
     return <div class="entry">

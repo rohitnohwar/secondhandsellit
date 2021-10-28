@@ -34,7 +34,7 @@ function Profile(props){
             _id={items._id}
             image={items.image}
             setUserPosts={setUserPosts}
-            onRemove={handleRemove}
+            //onRemove={handleRemove}
             />);
     }
 
@@ -45,20 +45,20 @@ function Profile(props){
         setAuth("");
     }
 
-    function handleAdd(event){
-        axios.post("/userposts", {username:user.email}
+    async function handleAdd(event){
+        await axios.post("/userposts", {username:user.email}
         ).then((response)=>{
             setUserPosts(response.data.foundPosts);
         });
     }
 
-    function handleRemove(id){
+    /*function handleRemove(id){
         setUserPosts(prevUserPosts=>{
             return prevUserPosts.filter((userPost, index)=>{
                 return id!==index;
             })
         })
-    }
+    }*/
 
     useEffect(()=>{ 
         if(auth){

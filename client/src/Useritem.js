@@ -4,8 +4,8 @@ import "./item.css";
 
 function Useritem(props){
 
-    function remove(event){
-        document.body.style.cursor='wait';
+    async function remove(event){
+        event.preventDefault();
         const postToBeDeleted={
             username:props.email,
             _id:props._id, 
@@ -13,12 +13,10 @@ function Useritem(props){
         }
         
         //props.onRemove(props.id);
-        axios.post("/deletepost", postToBeDeleted
+        await axios.post("/deletepost", postToBeDeleted
         ).then((response)=>{
             props.setUserPosts(response?.data?.foundPosts)
         });
-        event.preventDefault();
-        document.body.style.cursor='default';
     }
 
     return <div class="item">
