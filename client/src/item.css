@@ -7,6 +7,7 @@
     background-color:ghostwhite;
     border-radius: 2rem;
     padding: 1rem;
+    overflow-y: auto;
 }
 
 .img-div{
