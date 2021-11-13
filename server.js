@@ -126,7 +126,7 @@ app.post("/login", function(req, res){
         else  if(foundUser){
             bcrypt.compare(password, foundUser.password, function(err, response){
                 if(response === true){
-                    res.json({auth: true, foundUser:foundUser, name:foundUser.name, email:foundUser.email, message:"user doesn't exists"});
+                    res.json({auth: true, foundUser:foundUser, name:foundUser.name, email:foundUser.email, message:"user exists"});
                 }
                 else if(response===false){
                     res.json({ auth:false, message:"Incorrect credentials"});
