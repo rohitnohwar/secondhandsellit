@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express=require("express");
+const jwt = require("jsonwebtoken");
 const mongoose=require("mongoose");
 const ejs=require("ejs");
 const cors=require("cors");
@@ -124,9 +125,15 @@ app.post("/login", function(req, res){
         }
         
         else  if(foundUser){
-            bcrypt.compare(password, foundUser.password, function(err, response){
+            bcrypt.compare(password, foundUser.password, async function(err, response){
                 if(response === true){
-                    res.json({auth: true, foundUser:foundUser, name:foundUser.name, email:foundUser.email, message:"user exists"});
+                    const token = await jwt.sign(
+                        { name: foundUser.name, email:foundUser.email},
+                        "secretkey",
+                        { expiresIn: "30d" }
+                      );
+             
+                    res.json({auth: true, foundUser:foundUser, name:foundUser.name, email:foundUser.email, message:"user exists", token:token});
                 }
                 else if(response===false){
                     res.json({ auth:false, message:"Incorrect credentials"});
