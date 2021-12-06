@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import Title from "./Title";
 import {Link, useHistory} from "react-router-dom";
 import axios from "axios";
+import validator from "validator"
 import "./authentication.css";
 
 function Register(){
@@ -32,10 +33,18 @@ function Register(){
             password:input.password
         };
 
-        axios.post("/register", newUser
-        ).then((response)=>{
-            setMessage(response.data.message)
-        });
+        if (!input.username || !input.name || !input.password){
+            setMessage("Please enter all details")
+        }
+        else if(!validator.isEmail(input.username)){
+            setMessage("Please enter a valid email")
+        }
+        else{
+            axios.post("/register", newUser
+            ).then((response)=>{
+                setMessage(response.data.message)
+            });
+        }
         document.body.style.cursor='default';
     }
 
