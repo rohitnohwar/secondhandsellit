@@ -1,22 +1,11 @@
 require("dotenv").config();
 const express=require("express");
-const jwt = require("jsonwebtoken");
-const mongoose=require("mongoose");
 const ejs=require("ejs");
 const cors=require("cors");
 const fs=require("fs");
 const bodyParser = require("body-parser");
-const bcrypt = require("bcrypt");
-const Fuse=require("fuse.js");
-const multer=require("multer");
 const path=require("path");
-const S3 = require('aws-sdk/clients/s3')
-const saltRounds = 10;
-
-const bucketName=process.env.AWS_BUCKET_NAME;
-const region=process.env.AWS_BUCKET_REGION;
-const accessKeyId=process.env.AWS_ACCESS_KEY;
-const secretAccessKey=process.env.AWS_SECRET_KEY
+const mongoose=require("mongoose")
 
 const loginroutes=require("./routes/loginroutes")
 const registerroutes=require("./routes/registerroutes")
