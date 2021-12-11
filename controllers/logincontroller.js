@@ -13,7 +13,7 @@ function login(req, res){
             console.log(err);
         }
         else if(!foundUser){
-            res.json({auth:false, message:"User doesn't exists"});
+            res.json({auth:false, message:"User doesn't exist"});
         }
         
         else  if(foundUser){
