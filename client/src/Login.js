@@ -36,6 +36,7 @@ function Login(props){
             if(response.data.auth){
                 Cookies.set("email", response.data.email);
                 Cookies.set("name", response.data.name);
+                Cookies.set("token", response.data.token);
                 history.push("/profile");
             }
             else {

@@ -1,8 +1,14 @@
+require("dotenv").config();
 const mongoose=require("mongoose");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const User = require("../models/usermodel")
+const redis = require('redis')
+const client = redis.createClient({
+    port:6379,
+    host:"127.0.0.1"
+})
 
 function login(req, res){
     const username= req.body.username;

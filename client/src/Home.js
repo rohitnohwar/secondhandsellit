@@ -11,7 +11,7 @@ import "./home.css";
 function Home(props){
     const [posts, setPosts]=useState([]);
 
-    const [auth, setAuth]=useState(Cookies.get("email"));
+    const [auth, setAuth]=useState(Cookies.get("token"));
 
     function createcard(items, index){
         return (<Item 

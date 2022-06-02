@@ -12,10 +12,11 @@ function Profile(props){
      
     const [user, setUser]=useState({
         email: Cookies.get("email"),
-        name: Cookies.get("name")
+        name: Cookies.get("name"),
+        token: Cookies.get("token")
     });
 
-    const [auth, setAuth]=useState(Cookies.get("email"));
+    const [auth, setAuth]=useState(Cookies.get("token"));
 
     const [userPosts, setUserPosts]=useState([]);
 
@@ -42,6 +43,7 @@ function Profile(props){
         event.preventDefault();
         Cookies.remove("email");
         Cookies.remove("name");
+        Cookies.remove("token");
         setAuth("");
     }
 
