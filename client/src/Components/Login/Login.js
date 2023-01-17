@@ -1,18 +1,18 @@
 import React, {useState} from "react";
-import Title from "./Title";
+import Title from "../Title/Title";
 import {Link, useHistory} from "react-router-dom";
 import axios from "axios";
-import validator from "validator"
+import Cookies from "js-cookie";
 import "./authentication.css";
 
-function Register(){
-    const [message, setMessage]=useState("")
+function Login(props){
     const history=useHistory();
+    const [message, setMessage]=useState("")
     const[input, setInput]=useState({
         username:"",
-        name:"",
         password:""
     })
+
 
     function handleChange(event){
         const{name, value}=event.target;
@@ -24,41 +24,40 @@ function Register(){
         })
     }
 
-    function handleClick(event){
+    function handleClick(event){ 
         document.body.style.cursor='wait';
         event.preventDefault();
-        const newUser={
+        const user={
             username:input.username,
-            name:input.name,
             password:input.password
         };
-
-        if (!input.username || !input.name || !input.password){
-            setMessage("Please enter all details")
-        }
-        else if(!validator.isEmail(input.username)){
-            setMessage("Please enter a valid email")
-        }
-        else{
-            axios.post("/register", newUser
-            ).then((response)=>{
+        
+        axios.post("/login", user
+        ).then((response) => {
+            if(response.data.auth){
+                Cookies.set("email", response.data.email);
+                Cookies.set("name", response.data.name);
+                Cookies.set("token", response.data.token);
+                history.push("/profile");
+            }
+            else {
                 setMessage(response.data.message)
-            });
-        }
+            }
+        }); 
         document.body.style.cursor='default';
     }
 
-    return <div class="reg">
+    return <div>
     <Title />
-    <form class="register-form">
+    <form action="/login" class="register-form" method="POST">
+    <div>YOU CAN'T LOGIN IF YOU ARE NOT A REGISTERED USER</div>
     <div><input type="email" placeholder="email address" name="username" class="reg-input" onChange={handleChange} value={input.username} required></input></div>
-    <div><input type="text" placeholder="Name" name="name" class="reg-input" onChange={handleChange} value={input.name} required></input></div>
     <div><input type="password" placeholder="password" name="password" class="reg-input" onChange={handleChange} value={input.password} required></input></div>
-    <div><button type="submit" class="reg-button" onClick={handleClick}>REGISTER</button></div>
-    <div><Link to="/">ALREADY REGISTERED? LOGIN INSTEAD?</Link></div>
+    <div><button type="submit" class="reg-button" onClick={handleClick}>LOGIN</button></div>
+    <div><Link to="/register">NOT REGISTERED? REGISTER INSTEAD?</Link></div>
     <div className="message">{message}</div>
-    </form>
+    </form> 
     </div>;
 }
 
-export default Register;
+export default Login;

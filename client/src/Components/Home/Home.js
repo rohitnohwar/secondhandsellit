@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from "react";
-import Nav from "./Nav";
-import Item from "./Item";
-import Title from "./Title";
-import Search from "./Search";
+import Nav from "../Nav/Nav";
+import Item from "./Item/Item";
+import Title from "../Title/Title";
+import Search from "./Search/Search";
 import {Redirect} from "react-router-dom";
 import Cookies from "js-cookie";
 import axios from "axios";

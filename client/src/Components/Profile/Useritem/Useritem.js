@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import "./item.css";
+import "../../Home/Item/item.css";
 
 function Useritem(props){
 

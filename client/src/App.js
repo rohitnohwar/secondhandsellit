@@ -5,10 +5,10 @@ import React, { Suspense } from 'react';
 // import Login from "./Login";
 import {BrowserRouter as Router, Switch, Route, HashRouter} from "react-router-dom";
 
-const Home = React.lazy(() => import('./Home.js'));
-const Profile = React.lazy(() => import('./Profile.js'));
-const Register = React.lazy(() => import('./Register.js'));
-const Login = React.lazy(() => import('./Login.js'));
+const Home = React.lazy(() => import('./Components/Home/Home.js'));
+const Profile = React.lazy(() => import('./Components/Profile/Profile.js'));
+const Register = React.lazy(() => import('./Components/Register/Register.js'));
+const Login = React.lazy(() => import('./Components/Login/Login.js'));
 
 
 // function App(){ 

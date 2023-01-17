@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from "react";
-import Nav from "./Nav";
-import Useritem from "./Useritem";
-import Title from "./Title";
-import Entry from "./Entry";
+import Nav from "../Nav/Nav";
+import Useritem from "./Useritem/Useritem";
+import Title from "../Title/Title";
+import Entry from "./Entry/Entry";
 import axios from "axios";
 import {Redirect} from "react-router-dom";
 import Cookies from "js-cookie";
