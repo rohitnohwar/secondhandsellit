@@ -58,7 +58,6 @@ function userpostspost(req, res){
 }
 
 function deletepost(req, res){
-
     const params={
         Bucket: bucketName,
         Key:req.body.image
@@ -72,7 +71,6 @@ function deletepost(req, res){
 
     User.findOneAndUpdate({username:req.body.username}, {$pull:{posts:{_id:req.body._id}}}, function(err, foundList){
         if(err){
-            console.log(err);
         }
 
         User.findOne({username:req.body.username}, function(err, foundUser){

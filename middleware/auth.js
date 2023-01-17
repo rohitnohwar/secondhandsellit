@@ -10,7 +10,7 @@ const auth=(req, res, next)=>{
     else {
         token = req.body.token;
     }
-    console.log(token)
+    
     try {
         
         const verified = jwt.verify(token, process.env.SECRET_KEY);
