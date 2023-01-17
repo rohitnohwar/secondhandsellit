@@ -1,7 +1,9 @@
 const express=require("express");
 const app = express.Router()
-const {login} = require("../controllers/logincontroller")
+const {login, confirmlogin} = require("../controllers/logincontroller")
+const auth = require("../middleware/auth.js")
 
-app.post("/login", login)
+app.get("/login", login)
+app.get("/confirmlogin", auth, confirmlogin)
 
 module.exports = app

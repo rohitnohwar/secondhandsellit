@@ -23,7 +23,7 @@ function search(req, res){
             keys: ["item", "locality", "city"]
         });
 
-        foundUsers = fuse.search(req.body.search)
+        foundUsers = fuse.search(req.query["search"])
         foundUsers = foundUsers.map(o => o.item);
 
         res.json({foundPosts:foundUsers});

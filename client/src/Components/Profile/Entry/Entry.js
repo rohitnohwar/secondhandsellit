@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import axios from "axios";
 import "./entry.css";
+import Cookies from "js-cookie";
 
 function Entry(props){
     const [message, setMessage]=useState("")
@@ -41,6 +42,7 @@ function Entry(props){
         formdata.append("address", entry.address);
         formdata.append("locality", entry.locality);
         formdata.append("city", entry.city);
+        formdata.append("token",Cookies.get("token"))
 
         if(props.email && props.name && entry.item && entry.number && entry.address && entry.locality && entry.city && uploadImage){
             setMessage("Please wait. The post is getting uploaded.")

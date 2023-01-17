@@ -5,11 +5,13 @@ import Title from "../Title/Title";
 import Entry from "./Entry/Entry";
 import axios from "axios";
 import {Redirect} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import Cookies from "js-cookie";
 import "./profile.css";
 
 function Profile(props){  
-     
+    const history=useHistory();
+
     const [user, setUser]=useState({
         email: Cookies.get("email"),
         name: Cookies.get("name"),
@@ -48,9 +50,11 @@ function Profile(props){
     }
 
     async function handleAdd(event){
-        await axios.post("/userposts", {username:user.email}
+        await axios.post("/userposts", {username:user.email, token:Cookies.get("token")}
         ).then((response)=>{
             setUserPosts(response.data.foundPosts);
+        })
+        .catch((error)=>{
         });
     }
 
@@ -65,10 +69,24 @@ function Profile(props){
     useEffect(()=>{ 
         if(auth){
             axios.get("/userposts", {params:{
-                username:user.email
+                username:user.email,
+                token:Cookies.get("token")
             }}
             ).then((response)=>{
                 setUserPosts(response.data.foundPosts);
+            }); 
+        }
+    }, []);
+
+    useEffect(()=>{ 
+        if(auth){
+            axios.get("/confirmlogin", {params:{
+                token:Cookies.get("token")
+            }}
+            ).then((response)=>{
+                
+            }).catch((error)=>{
+                history.push("/")
             }); 
         }
     }, []);

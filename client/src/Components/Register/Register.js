@@ -1,7 +1,8 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Title from "../Title/Title";
 import {Link, useHistory} from "react-router-dom";
 import axios from "axios";
+import Cookies from "js-cookie";
 import validator from "validator"
 import "../Login/authentication.css";
 
@@ -47,6 +48,16 @@ function Register(){
         }
         document.body.style.cursor='default';
     }
+
+    useEffect(()=>{ 
+            axios.get("/confirmlogin", {params:{
+                token:Cookies.get("token")
+            }}
+            ).then((response)=>{
+                history.push("/profile")
+            }).catch((error)=>{
+            }); 
+    }, []);
 
     return <div class="reg">
     <Title />

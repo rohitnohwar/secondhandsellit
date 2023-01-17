@@ -4,11 +4,13 @@ import Item from "./Item/Item";
 import Title from "../Title/Title";
 import Search from "./Search/Search";
 import {Redirect} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import Cookies from "js-cookie";
 import axios from "axios";
 import "./home.css";
 
 function Home(props){
+    const history=useHistory();
     const [posts, setPosts]=useState([]);
 
     const [auth, setAuth]=useState(Cookies.get("token"));
@@ -32,22 +34,39 @@ function Home(props){
             document.body.style.cursor='wait';
             let searched=window.location.search;
             if(searched==="" || searched==="?-"){
-                axios.get("/posts"
+                axios.get("/posts", {params:{token:Cookies.get("token")}},
                 ).then((response)=>{
                     setPosts(response.data.foundPosts);
+                })
+                .catch((error)=>{
                 });
             }
             else{
                 let str = searched.replace(/-/g, ' ');
                 const search=str.slice(1);
-                axios.post("/search", {search:search}
+                axios.get("/search", { params:{search:search, token:Cookies.get("token")}}
                 ).then((response)=>{
                     setPosts(response.data.foundPosts);
+                })
+                .catch((error)=>{
                 });
             }
             document.body.style.cursor='default';
         }
     },[window.location.search]);
+
+    useEffect(()=>{ 
+        if(auth){
+            axios.get("/confirmlogin", {params:{
+                token:Cookies.get("token")
+            }}
+            ).then((response)=>{
+                
+            }).catch((error)=>{
+                history.push("/")
+            }); 
+        }
+    }, []);
 
     function handleSearch(foundPosts){
         setPosts(foundPosts);

@@ -5,14 +5,15 @@ const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const User = require("../models/usermodel")
 const redis = require('redis')
-const client = redis.createClient({
-    port:6379,
-    host:"127.0.0.1"
-})
+
+function confirmlogin(req, res) {
+    res.json({ auth: true, message:"user already logged in"});
+}
+
 
 function login(req, res){
-    const username= req.body.username;
-    const password= req.body.password;
+    const username= req.query["username"];
+    const password= req.query["password"];
 
     User.findOne({username:username}, function(err, foundUser){
         if(err){
@@ -27,9 +28,11 @@ function login(req, res){
                 if(response === true){
                     const token = await jwt.sign(
                         { name: foundUser.name, email:foundUser.email},
-                        "secretkey",
+                        process.env.SECRET_KEY,
                         { expiresIn: "30d" }
                       );
+
+                      console.log(token)
              
                     res.json({auth: true, foundUser:foundUser, name:foundUser.name, email:foundUser.email, message:"user exists", token:token});
                 }
@@ -41,4 +44,4 @@ function login(req, res){
     });
 }
 
-module.exports = {login}
+module.exports = {login, confirmlogin}

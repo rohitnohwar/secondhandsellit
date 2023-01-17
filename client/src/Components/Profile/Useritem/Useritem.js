@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "../../Home/Item/item.css";
+import Cookies from "js-cookie";
 
 function Useritem(props){
 
@@ -9,7 +10,8 @@ function Useritem(props){
         const postToBeDeleted={
             username:props.email,
             _id:props._id, 
-            image:props.image
+            image:props.image,
+            token:Cookies.get("token")
         }
         
         //props.onRemove(props.id);

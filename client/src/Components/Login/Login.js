@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Title from "../Title/Title";
 import {Link, useHistory} from "react-router-dom";
 import axios from "axios";
@@ -29,10 +29,11 @@ function Login(props){
         event.preventDefault();
         const user={
             username:input.username,
-            password:input.password
+            password:input.password,
+            token:Cookies.get("token")
         };
-        
-        axios.post("/login", user
+
+        axios.get("/login",{ params: user }
         ).then((response) => {
             if(response.data.auth){
                 Cookies.set("email", response.data.email);
@@ -46,6 +47,16 @@ function Login(props){
         }); 
         document.body.style.cursor='default';
     }
+
+    useEffect(()=>{ 
+        axios.get("/confirmlogin", {params:{
+            token:Cookies.get("token")
+        }}
+        ).then((response)=>{
+            history.push("/profile")
+        }).catch((error)=>{
+        }); 
+    }, []);
 
     return <div>
     <Title />
