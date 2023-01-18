@@ -31,8 +31,6 @@ function login(req, res){
                         process.env.SECRET_KEY,
                         { expiresIn: "30d" }
                       );
-
-                      console.log(token)
              
                     res.json({auth: true, foundUser:foundUser, name:foundUser.name, email:foundUser.email, message:"user exists", token:token});
                 }
