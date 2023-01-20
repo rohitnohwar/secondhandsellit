@@ -66,7 +66,6 @@ function deletepost(req, res){
     s3.deleteObject(params, function(err,data){
         if(err){
             // throw err;
-            throw error;
         }
     })
 
