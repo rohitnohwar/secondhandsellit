@@ -1,4 +1,5 @@
 import React from "react";
+import "./item.css";
 
 function Item(props){
     return <div class="item">
