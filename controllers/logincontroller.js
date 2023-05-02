@@ -28,7 +28,7 @@ function login(req, res){
                 if(response === true){
                     const token = await jwt.sign(
                         { name: foundUser.name, email:foundUser.email},
-                        process.env.SECRET_KEY,
+                        process.env.SECRET_KEY+username,
                         { expiresIn: "30d" }
                       );
              
