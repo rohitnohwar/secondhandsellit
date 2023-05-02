@@ -20,7 +20,8 @@ function search(req, res){
     User.find({}, function(err, foundUsers){
         foundUsers=foundUsers.map(o=>o.posts).flat();
         const fuse = new Fuse(foundUsers, {
-            keys: ["item", "locality", "city"]
+            keys: ["item", "locality", "city"],
+            threshold: 0.4
         });
 
         foundUsers = fuse.search(req.query["search"])
