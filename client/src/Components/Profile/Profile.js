@@ -81,7 +81,8 @@ function Profile(props){
     useEffect(()=>{ 
         if(auth){
             axios.get("/confirmlogin", {params:{
-                token:Cookies.get("token")
+                token:Cookies.get("token"),
+                username:user.email,
             }}
             ).then((response)=>{
                 

@@ -34,7 +34,7 @@ function Home(props){
             document.body.style.cursor='wait';
             let searched=window.location.search;
             if(searched==="" || searched==="?-"){
-                axios.get("/posts", {params:{token:Cookies.get("token")}},
+                axios.get("/posts", {params:{token:Cookies.get("token"), username: Cookies.get("email")}},
                 ).then((response)=>{
                     setPosts(response.data.foundPosts);
                 })
@@ -44,7 +44,7 @@ function Home(props){
             else{
                 let str = searched.replace(/-/g, ' ');
                 const search=str.slice(1);
-                axios.get("/search", { params:{search:search, token:Cookies.get("token")}}
+                axios.get("/search", { params:{search:search, token:Cookies.get("token"), username: Cookies.get("email")}}
                 ).then((response)=>{
                     setPosts(response.data.foundPosts);
                 })
@@ -58,7 +58,8 @@ function Home(props){
     useEffect(()=>{ 
         if(auth){
             axios.get("/confirmlogin", {params:{
-                token:Cookies.get("token")
+                token:Cookies.get("token"),
+                username:Cookies.get("email")
             }}
             ).then((response)=>{
                 

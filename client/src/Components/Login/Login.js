@@ -50,7 +50,8 @@ function Login(props){
 
     useEffect(()=>{ 
         axios.get("/confirmlogin", {params:{
-            token:Cookies.get("token")
+            token:Cookies.get("token"),
+            username: Cookies.get("email")
         }}
         ).then((response)=>{
             history.push("/profile")
